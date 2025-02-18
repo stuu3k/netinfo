@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#152844"
+    app:cardBackgroundColor="#152844"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title bar -->
+        <LinearLayout
+            android:id="@+id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#03A9F4"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Results"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="STOP"
+                android:visibility="gone"
+                android:layout_marginEnd="100dp"
+                style="@style/StopButtonStyle"/>
+
+            <ImageButton
+                android:id="@+id/minimizeButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/arrow_down_float"
+                android:tint="@android:color/white" />
+
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:tint="@android:color/white" />
+        </LinearLayout>
+
+        <!-- Scrollable Content -->
+        <com.ungifted.netinfo.CustomScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <com.ungifted.netinfo.ZoomLayout
+                android:id="@+id/zoomLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/resultText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="100dp"
+                    android:padding="16dp"
+                    android:textColor="#03A9F4"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace"
+                    android:background="#152844" />
+
+            </com.ungifted.netinfo.ZoomLayout>
+
+        </com.ungifted.netinfo.CustomScrollView>
+
+        <!-- Footer bar -->
+        <LinearLayout
+            android:id="@+id/footerBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#03A9F4"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+
+            <!-- Alert Checkboxes Container -->
+            <LinearLayout
+                android:id="@+id/soundControlsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/onSuccessCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OnSuccess"
+                    android:textColor="#4CAF50"
+                    android:buttonTint="#4CAF50"
+                    android:textSize="12sp"/>
+
+                <CheckBox
+                    android:id="@+id/onFailCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OnFail"
+                    android:textColor="#F44336"
+                    android:buttonTint="#F44336"
+                    android:layout_marginStart="8dp"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <!-- Spacer to push zoom controls to the right -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <!-- Zoom Slider Container -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Zoom:"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:layout_marginEnd="4dp"/>
+
+                <SeekBar
+                    android:id="@+id/zoomSlider"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:progressTint="@android:color/white"
+                    android:thumbTint="@android:color/white"
+                    android:progressBackgroundTint="@android:color/white"
+                    android:max="200"
+                    android:progress="100"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView> 

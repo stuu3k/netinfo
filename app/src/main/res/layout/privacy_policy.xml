@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:orientation="vertical"
+        android:background="@drawable/dialog_background">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:padding="16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#33FFFFFF"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@android:color/white"
+                android:text="This app is designed with your privacy in mind. Here's what you should know:\n\n
+• No Personal Data Collection: We do not collect, store, or transmit any personal information.\n\n
+• Network Testing Only: The app only performs network diagnostics (ping, traceroute, DNS lookups) to specified servers.\n\n
+• No Analytics: We don't use any analytics or tracking services.\n\n
+• No Ads: This app is ad-free and will remain that way.\n\n
+• Local Storage Only: Any settings or preferences are stored locally on your device.\n\n
+• Permissions: We only request network access permissions necessary for the diagnostic tools to function.\n\n
+• Third-Party Services: When using the share feature, you control what apps to share with and what information to share.\n\n
+By using this app, you agree to these privacy terms."/>
+
+        </ScrollView>
+
+        <ImageButton
+            android:id="@+id/confirmButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_check"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close Privacy Policy"/>
+
+    </LinearLayout>
+</FrameLayout> 

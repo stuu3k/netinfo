@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Net Info</string>
+    <string name="faq_content">Q: What is Network Info?\n
+A: Network Info is a tool for testing and monitoring network connectivity. It provides various features like ping tests, DNS lookups, and network scanning.\n\n
+
+Q: How do I use the Ping feature?\n
+A: Simply tap any of the ping buttons to start a ping test to that target. For custom pings, use the buttons in the Custom section.\n\n
+
+Q: What is Continuous Ping?\n
+A: Continuous Ping allows you to repeatedly ping a target and get alerts based on connectivity changes.\n\n
+
+Q: What does the Network Scan do?\n
+A: Network Scan searches your local network for active devices and attempts to identify them.\n\n
+
+Q: How do I save custom targets?\n
+A: Long press any custom button to set or update its target.</string>
+</resources>

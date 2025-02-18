@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Toolbar with Share, Title and Settings -->
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_share"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"/>
+
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@android:drawable/ic_menu_manage"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <!-- Main ScrollView -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_marginTop="48dp">
+
+        <!-- Single parent LinearLayout for all content -->
+        <LinearLayout
+            android:id="@+id/mainLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <!-- Network Logo -->
+            <ImageView
+                android:id="@+id/networkLogo"
+                android:layout_width="600dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:src="@drawable/network_tools"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Refresh button -->
+            <ImageButton
+                android:id="@+id/refreshButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_rotate"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Local Services Container -->
+            <LinearLayout
+                android:id="@+id/localServicesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Local page DNS Suffix Text -->
+                <TextView
+                    android:id="@+id/localDnsSuffixText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Rest of local services content -->
+                <!-- ... -->
+            </LinearLayout>
+
+            <!-- Standard content container -->
+            <LinearLayout
+                android:id="@+id/buttonsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Provider Logo -->
+                <ImageView
+                    android:id="@+id/providerLogo"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/cloudflare"
+                    android:layout_marginBottom="32dp"/>
+
+                <!-- First Row -->
+                <TextView
+                    android:id="@+id/primaryIpText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- First Row Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/button1_container"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/pingButton1"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            style="@style/CustomButtonStyle"
+                            android:text="PING"/>
+
+                        <View
+                            android:id="@+id/progressBar1"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/progress_bar_background"
+                            android:elevation="1dp"
+                            android:visibility="invisible"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/button1_trace_container"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/traceButton1"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            style="@style/CustomButtonStyle"
+                            android:text="TRACE"/>
+
+                        <View
+                            android:id="@+id/progressBar1_trace"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/progress_bar_background"
+                            android:visibility="invisible"/>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- Second Row -->
+                <TextView
+                    android:id="@+id/secondaryIpText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Second Row Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/button2_container"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/dhcpButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            style="@style/CustomButtonStyle"
+                            android:text="DHCP"/>
+
+                        <View
+                            android:id="@+id/dhcp_progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/progress_bar_background"
+                            android:visibility="invisible"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/dnsButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            style="@style/CustomButtonStyle"
+                            android:text="DNS"/>
+
+                        <View
+                            android:id="@+id/dns_progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/progress_bar_background"
+                            android:visibility="invisible"/>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- Third Row -->
+                <TextView
+                    android:id="@+id/domainText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Third Row Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/button3_container"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/pingButton3"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            style="@style/CustomButtonStyle"
+                            android:text="PING"/>
+
+                        <View
+                            android:id="@+id/progressBar3"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/progress_bar_background"
+                            android:visibility="invisible"/>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/button3_trace_container"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/traceButton3"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            style="@style/CustomButtonStyle"
+                            android:text="TRACE"/>
+
+                        <View
+                            android:id="@+id/progressBar3_trace"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/progress_bar_background"
+                            android:visibility="invisible"/>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- DNS button -->
+                <LinearLayout
+                    android:id="@+id/dns_button_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp">
+
+                    <FrameLayout
+                        android:id="@+id/button3_dns_container"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="100dp">
+
+                        <Button
+                            android:id="@+id/nslookupButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            style="@style/CustomButtonStyle"
+                            android:text="DNS"/>
+
+                        <View
+                            android:id="@+id/progressBar3_dns"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/progress_bar_background"
+                            android:visibility="invisible"/>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- Network Scan button container -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp">
+
+                    <Button
+                        android:id="@+id/networkScanButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        style="@style/CustomButtonStyle"
+                        android:text="NETWORK SCAN"/>
+
+                    <View
+                        android:id="@+id/progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/progress_bar_background"
+                        android:visibility="invisible"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- Custom Ping Header -->
+            <TextView
+                android:id="@+id/customPingHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Ping"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Add hint text for Custom Ping -->
+            <TextView
+                android:id="@+id/customPingHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Tap to Set, Long Press to Change"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Custom Ping Grid -->
+            <GridLayout
+                android:id="@+id/customPingGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="5"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Custom Trace Header -->
+            <TextView
+                android:id="@+id/customTraceHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Trace"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Add hint text for Custom Trace -->
+            <TextView
+                android:id="@+id/customTraceHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*Tap to Set, Long Press to Change"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Custom Trace Grid -->
+            <GridLayout
+                android:id="@+id/customTraceGrid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="5"/>
+
+            <!-- Continuous Ping Container -->
+            <LinearLayout
+                android:id="@+id/continuousPingContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Continuous Ping Section -->
+                <TextView
+                    android:id="@+id/continuousPingSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Here you can run a continuous ping with optional sound alerts, tap the button below to get started, to update a saved entry long press the button."
+                    android:textSize="15sp"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"/>
+
+                <!-- Continuous Ping Button -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:tag="continuous_ping_container">
+
+                    <Button
+                        android:id="@+id/continuousPingButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        style="@style/CustomButtonStyle"
+                        android:text="Set Target"/>
+
+                    <View
+                        android:id="@+id/continuous_ping_progress_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/progress_bar_background"
+                        android:visibility="invisible"/>
+                </FrameLayout>
+
+                <!-- Ping Alert Container -->
+                <LinearLayout
+                    android:id="@+id/pingAlertContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*Tap to Set, Long Press to Change"
+                        android:textSize="15sp"
+                        android:textStyle="italic"
+                        android:layout_marginBottom="4dp"/>
+
+                    <CheckBox
+                        android:id="@+id/alertEveryPing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beep Every Ping"
+                        android:textColor="@android:color/white"
+                        android:buttonTint="@android:color/white"
+                        android:gravity="center"/>
+
+                    <CheckBox
+                        android:id="@+id/alertTenPings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beep Every 10 Pings"
+                        android:textColor="@android:color/white"
+                        android:buttonTint="@android:color/white"
+                        android:gravity="center"/>
+
+                    <CheckBox
+                        android:id="@+id/alertStatusChange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beep On Status Change Only"
+                        android:textColor="@android:color/white"
+                        android:buttonTint="@android:color/white"
+                        android:gravity="center"
+                        android:checked="true"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Screen On Toggle Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+                
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.65">
+
+                    <Button
+                        android:id="@+id/keepScreenOnButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        style="@style/CustomButtonStyle"
+                        android:text="KEEP SCREEN ON"/>
+
+                    <View
+                        android:id="@+id/progressBar_screen_on"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignStart="@id/keepScreenOnButton"
+                        android:layout_alignEnd="@id/keepScreenOnButton"
+                        android:background="@drawable/progress_bar_background"
+                        android:visibility="invisible"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- Add after the Keep Screen On button -->
+            <LinearLayout
+                android:id="@+id/soundControlsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sound Controls"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <CheckBox
+                    android:id="@+id/mainOnSuccessCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="On Success"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"/>
+
+                <CheckBox
+                    android:id="@+id/mainOnFailCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="On Fail"
+                    android:textColor="@android:color/white"
+                    android:buttonTint="@android:color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout> 
