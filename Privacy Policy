@@ -1,0 +1,10 @@
+This app is designed with your privacy in mind. Here's what you should know:
+• We request Location permission so we can query the "SSID" (WIFI Network Name) and some other Network Information, this data is not transmitted, you can disable this permission and keep use the rest of the app as intended if you want!
+• No Personal Data Collection: We do not collect, store, or transmit any personal information.
+• Network Testing Only: The app only performs network diagnostics (ping, traceroute, DNS lookups) to specified servers.
+• No Analytics: We don't use any analytics or tracking services.
+• No Ads: This app is ad-free and will remain that way.
+• Local Storage Only: Any settings or preferences are stored locally on your device.
+• Permissions: We only request network access permissions necessary for the diagnostic tools to function.
+• Third-Party Services: When using the share feature, you control any information to be shared and whonm it is shared with, if at all.
+By using this app, you agree to these privacy terms.
